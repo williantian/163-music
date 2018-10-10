@@ -95,7 +95,10 @@
         song.set('name', data.name)
         song.set('singer',data.singer)
         song.set('url',data.url)
-        return song.save()
+        return song.save().then((response)=>{
+           Object.assign(this.data, data)//记录下最新的data
+           return response
+        })
       }
   }
   let controller = {
