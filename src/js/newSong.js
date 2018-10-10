@@ -21,10 +21,12 @@
             window.eventHub.on('select',()=>{
                 this.deactive()
             })
+            $(this.view.el).on('click', this.active.bind(this))
             
         },
         active(){
             $(this.view.el).addClass('active')
+            window.eventHub.emit('new')
         },
         deactive(){
             $(this.view.el).removeClass('active')
