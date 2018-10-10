@@ -98,18 +98,19 @@
           this.model=model
           this.view.render(this.model.data)
           this.bindEvents()
-          window.eventHub.on('upload', (data)=>{
-            this.model.data = data
-            this.view.render(this.model.data)
-          })
           window.eventHub.on('select', (data)=>{
               this.model.data = data
               this.view.render(this.model.data)
           })
-          window.eventHub.on('new',()=>{
-                this.model.data ={
+          window.eventHub.on('new',(data)=>{
+              if(this.model.data.id){
+                this.model.data={
                     name: '', singer: '', url: '', id: ''
-            }
+                  }
+              }else{
+                Object.assign(this.model.data, data)//将后面的对象的值 赋值给前面对象 无卵后者是什么值 赋值之后的 typeof 一定还是object
+                console.log(this.model.data)
+              } 
                 this.view.render(this.model.data)
           })
       },

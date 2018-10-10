@@ -15,18 +15,19 @@
             this.model=model
             this.view.render(this.model.data)
             this.active()
-            window.eventHub.on('upload', ()=>{
+            window.eventHub.on('new', ()=>{
                 this.active() //this 是controller
             })
             window.eventHub.on('select',()=>{
                 this.deactive()
             })
-            $(this.view.el).on('click', this.active.bind(this))
+            $(this.view.el).on('click', ()=>{
+                window.eventHub.emit('new')
+            })
             
         },
         active(){
             $(this.view.el).addClass('active')
-            window.eventHub.emit('new')
         },
         deactive(){
             $(this.view.el).removeClass('active')
