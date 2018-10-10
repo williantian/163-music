@@ -6,9 +6,6 @@
         `,
         render(data){
             $(this.el).html(this.template)
-        },
-        active(){
-            $(this.el).addClass('active')
         }
     }
     let model = {}
@@ -17,11 +14,20 @@
             this.view = view
             this.model=model
             this.view.render(this.model.data)
-            this.view.active()
-            window.eventHub.on('upload', (data)=>{
-                this.view.active() //this 是controller
+            this.active()
+            window.eventHub.on('upload', ()=>{
+                this.active() //this 是controller
+            })
+            window.eventHub.on('select',()=>{
+                this.deactive()
             })
             
+        },
+        active(){
+            $(this.view.el).addClass('active')
+        },
+        deactive(){
+            $(this.view.el).removeClass('active')
         }
     }
     controller.init(view,model)

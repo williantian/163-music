@@ -11,7 +11,7 @@
             let {songs}=data
             let liList = songs.map((song)=>{
                 let li = $('<li></li>') 
-                li.text(song.name)
+                li.text(song.name).attr('data-song-id',song.id)
                 return li //return 之后 liList 才有值 不然就是undefined
             })
         //可以简化为 let liList = songs.map((song)=>{
@@ -29,7 +29,7 @@
         clearActive(){
             $(this.el).find('.active').removeClass('active')
         },
-        activeItems(li){
+        activeItem(li){
             let $li = $(li)
             $li.addClass('active').siblings('.active').removeClass('active')
         }
@@ -66,7 +66,9 @@
         },
         bindEvents(){
             $(this.view.el).on('click', 'li', (e)=>{
-                 this.view.activeItems(e.currentTarget)
+                 this.view.activeItem(e.currentTarget)
+                 let songId = e.currentTarget.getAttribute(`data-song-id`)
+                 window.eventHub.emit('select', {id: songId})
             })
         },
         bindEventHub(){
