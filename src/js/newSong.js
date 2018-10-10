@@ -24,7 +24,9 @@
             $(this.view.el).on('click', ()=>{
                 window.eventHub.emit('new')
             })
-            
+            window.eventHub.on('update',()=>{
+                this.deactive()
+            })
         },
         active(){
             $(this.view.el).addClass('active')

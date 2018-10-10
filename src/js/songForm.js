@@ -119,7 +119,7 @@
                   }
               }else{
                 Object.assign(this.model.data, data)//将后面的对象的值 赋值给前面对象 无卵后者是什么值 赋值之后的 typeof 一定还是object
-                console.log(this.model.data)
+             
               } 
                 this.view.render(this.model.data)
           })

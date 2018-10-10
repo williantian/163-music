@@ -8,11 +8,13 @@
         render(data){
             let $el = $(this.el)
             $el.html(this.template)
-            let {songs}=data
+            let {songs, selectedSongId} = data
             let liList = songs.map((song)=>{
-                let li = $('<li></li>') 
-                li.text(song.name).attr('data-song-id',song.id)
-                return li //return 之后 liList 才有值 不然就是undefined
+                let $li = $('<li></li>').text(song.name).attr('data-song-id',song.id)
+                   if(song.id===selectedSongId){
+                    $li.addClass('active')
+                   }
+                return $li //return 之后 liList 才有值 不然就是undefined
             })
         //可以简化为 let liList = songs.map((song)=>{
            //       let li = $('<li></li>') 
@@ -20,7 +22,7 @@
             //      return li})
             //由于只有一行 map可以简化为
             // let liList = songs.map((song)=> $('<li></li>').text(song.name)
-            
+        
             $el.find('ol').empty()
             liList.map((domLi)=>{
                 $el.find('ol').append(domLi)
@@ -28,15 +30,12 @@
         },
         clearActive(){
             $(this.el).find('.active').removeClass('active')
-        },
-        activeItem(li){
-            let $li = $(li)
-            $li.addClass('active').siblings('.active').removeClass('active')
         }
     }
     let model = {
         data: {
-            songs: []
+            songs: [],
+            selectedSongId: null,
         },
         find(){
             var query = new AV.Query('Song');
@@ -66,8 +65,11 @@
         },
         bindEvents(){
             $(this.view.el).on('click', 'li', (e)=>{
-                 this.view.activeItem(e.currentTarget)
+
                  let songId = e.currentTarget.getAttribute(`data-song-id`)
+                 this.model.data.selectedSongId = songId
+                 this.view.render(this.model.data)
+
                  let data
                  let songs = this.model.data.songs
                  for(let i=0; i<songs.length; i++){
