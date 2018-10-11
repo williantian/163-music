@@ -27,7 +27,7 @@ body{
     margin: 20px 0 8px;
 }
 .pageTabsNavbar{
-    transition: all 1s;
+    transition: all linear 1s;
 }
 .sticky{
     position: fixed;
@@ -146,8 +146,34 @@ section.playlists > ol.songs > li img{
 section.songs > .list{
     margin-top: 18px;
 }
-section.songs > .list > h3{
+section.songs > .list > li > h3{
     font-size: 17px;
+}
+section.songs > .list > li > p{
+    font-size: 12px;
+    color: #888;
+}
+section.songs > .list > li{
+    position: relative;
+    margin-left: 10px;
+    padding-bottom: 6px;
+    padding-top: 5px;
+    border-bottom: 1px solid #e2e2e3;
+}
+section.songs > .list > li >.playButton{
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+section.songs > .list .icon-playbutton{
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    fill: #AAA;
+}
+section.songs > .list .icon-sq{
+    fill: #FE672E;
 }
 section.art{
     padding-top: 38px;
