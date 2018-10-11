@@ -1,12 +1,11 @@
 {   
     let view = {
-        el: 'li.page-3',
+        el: '.page-3',
         init(){
             this.$el = $(this.el)
         },
         show(){
-            this.$el.addClass('active')
-            
+            this.$el.addClass('active')  
         },
         hide(){
             this.$el.removeClass('active')
@@ -25,7 +24,7 @@
               if(tabName === 'page-3'){
                   this.view.show()
               }else{
-                  this.view.hide()
+                this.view.hide()
               }
             })
         }

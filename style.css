@@ -26,6 +26,9 @@ body{
     padding-left: 8px;
     margin: 20px 0 8px;
 }
+.pageTabsNavbar{
+    transition: all 1s;
+}
 .sticky{
     position: fixed;
     top: 0;
@@ -42,7 +45,7 @@ section.topbar{
     background: #d43c33;
     padding: 17px 10px;
 }
-section.topbar .log > svg{
+section.topbar .logo > svg{
     width: 142px;
     height: 25px;
     vertical-align: top;
@@ -126,12 +129,12 @@ section.playlists > ol.songs > li{
     width: 32.8%;
     margin: 8px 0;
 }
-section.playlists > ol.songs > li>p{
+section.playlists > ol.songs > li p{
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;/*看文档 这段p的css 删除也是一样*/
+    -webkit-line-clamp: ;/*看文档 这段p的css 删除也是一样*/
     overflow: hidden;
-    line-height: 18px;
+    line-height: 20px;
     height: 36px;
     padding: 0 6px;
 }

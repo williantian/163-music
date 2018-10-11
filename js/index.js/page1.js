@@ -1,15 +1,14 @@
 {   
     let view = {
-        el: 'li.page-1',
+        el: '.page-1',
         init(){
             this.$el = $(this.el)
         },
         show(){
-            this.$el.addClass('active')
+            $(this.el).addClass('active')
         },
         hide(){
-            console.log('执行hide')
-            this.$el.removeClass('active')
+            $(this.el).removeClass('active')
         }
     }
     let model = {}
@@ -27,10 +26,9 @@
               if(tabName === 'page-1'){
                   this.view.show()
               }else{
-                  console.log('hide')
-                  this.view.hide()
+                this.view.hide()
               }
-            })
+            }) 
         },
         loadModule1(){
             let script1 = document.createElement('script')
@@ -44,7 +42,7 @@
             let script2 = document.createElement('script')
             script2.src = './js/index.js/page1-2.js'
             script2.onload = function(){
-                console.log('模块一加载完毕')
+                console.log('模块二加载完毕')
             }
             document.body.appendChild(script2) 
         }

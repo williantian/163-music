@@ -1,6 +1,6 @@
 {
     let view = {
-        el: 'li.page-2',
+        el: '.page-2',
         init(){
             this.$el = $(this.el)
         },
@@ -24,7 +24,7 @@
               if(tabName === 'page-2'){
                   this.view.show()
               }else{
-                  this.view.hide()
+                this.view.hide()
               }
             })
         }
