@@ -25,6 +25,18 @@
               <input name="url" type="text" value="__url__">
           </div>
           <div class="row">
+              <label>
+              封面
+              </label>
+              <input name="url" type="text" value="__cover__">
+          </div>
+          <div class="row">
+              <label>
+              歌词
+              </label>
+              <text name="url" type="text" value="__url__">
+          </div>
+          <div class="row">
               <button type="submit">保存</button>
           </div>
       </form>
@@ -33,7 +45,7 @@
           if(data === undefined){
             data = {}
           }
-            let placeholders = ['name', 'url', 'singer', 'id']
+            let placeholders = ['name', 'url', 'singer', 'id', 'cover']
             let html = this.template
             placeholders.map((string)=>{
                 html = html.replace(`__${string}__`, data[string] || '')
@@ -51,7 +63,7 @@
   }
   let model = {
       data: {
-        name: '', singer: '', url: '', id: ''
+        name: '', singer: '', url: '', id: '',cover: '封面比例一比一'
       },
       create(data){
           // 声明类型
@@ -63,6 +75,7 @@
         song.set('singer',data.singer)
         song.set('url',data.url)
         song.set('id',data.id)
+        song.set('cover',data.cover)
         // 设置优先级
         return song.save().then((newSong)=> {
             let id = newSong.id
@@ -71,7 +84,8 @@
                 id: id,                //或者按照下面传数据处修改   修改一处即可完成深拷贝
                 name: attributes.name,
                 singer: attributes.singer,
-                url: attributes.url
+                url: attributes.url,
+                cover: attributes.cover
             })
             //把右边的对象赋给左边的对象
             //等价于
@@ -95,6 +109,7 @@
         song.set('name', data.name)
         song.set('singer',data.singer)
         song.set('url',data.url)
+        song.set('cover',data.cover)
         return song.save().then((response)=>{
            Object.assign(this.data, data)//记录下最新的data
            return response
@@ -115,7 +130,7 @@
           window.eventHub.on('new',(data)=>{
               if(this.model.data.id){
                 this.model.data={
-                    name: '', singer: '', url: '', id: ''
+                    name: '', singer: '', url: '', id: '',cover:''
                   }
               }else{
                 Object.assign(this.model.data, data)//将后面的对象的值 赋值给前面对象 无卵后者是什么值 赋值之后的 typeof 一定还是object
@@ -125,7 +140,7 @@
           })
       },
       create(){
-        let needs = ['name', 'singer', 'url']//可以改写为 let needs='name singer url'.split(' ')//以空格隔开 形成新的对象（数组）
+        let needs = ['name', 'singer', 'url','cover']//可以改写为 let needs='name singer url'.split(' ')//以空格隔开 形成新的对象（数组）
         let data = {}
         needs.map((string)=>{
             data[string] = this.view.$el.find(`[name="${string}"]`).val()//val()函数 找到对应的value
@@ -138,7 +153,7 @@
         })
       },
       update(){
-        let needs = ['name', 'singer', 'url']//可以改写为 let needs='name singer url'.split(' ')//以空格隔开 形成新的对象（数组）
+        let needs = ['name', 'singer', 'url','cover']//可以改写为 let needs='name singer url'.split(' ')//以空格隔开 形成新的对象（数组）
         let data = {}
         needs.map((string)=>{
             data[string] = this.view.$el.find(`[name="${string}"]`).val()//val()函数 找到对应的value

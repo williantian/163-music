@@ -27,7 +27,7 @@ body{
     margin: 20px 0 8px;
 }
 .pageTabsNavbar.sticky{
-    transition: all linear 1s;
+    transition: all linear 0.2s;
 }
 .sticky{
     position: sticky;
