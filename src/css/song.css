@@ -90,6 +90,16 @@
     overflow: hidden;
 
 }
+.song-description .lines > p{
+    line-height: 24px;
+    font-size: 14px;
+}
+.song-description .lines > p.active{
+    color: white;
+}
+.song-description .lines{
+    transition: transform 0.3s;
+}
 .page .links{
     display: flex;
     justify-content: center;
