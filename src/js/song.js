@@ -28,7 +28,7 @@
                 name: '',
                 singer: '',
                 url: '',
-                cover: ''
+                cover: '',
             },
             status: 'paused'
          },
