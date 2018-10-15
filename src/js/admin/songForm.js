@@ -28,13 +28,13 @@
               <label>
               封面
               </label>
-              <input name="url" type="text" value="__cover__">
+              <input name="cover" type="text" value="__cover__">
           </div>
           <div class="row">
               <label>
               歌词
               </label>
-              <text name="url" type="text" value="__url__">
+              <text name="lyric" type="text" value="__lyric__">
           </div>
           <div class="row">
               <button type="submit">保存</button>
@@ -63,7 +63,7 @@
   }
   let model = {
       data: {
-        name: '', singer: '', url: '', id: '',cover: '封面比例一比一'
+        name: '', singer: '', url: '', id: '',cover: ''
       },
       create(data){
           // 声明类型
@@ -140,7 +140,7 @@
           })
       },
       create(){
-        let needs = ['name', 'singer', 'url','cover']//可以改写为 let needs='name singer url'.split(' ')//以空格隔开 形成新的对象（数组）
+        let needs = ['name', 'singer', 'url', 'cover']//可以改写为 let needs='name singer url'.split(' ')//以空格隔开 形成新的对象（数组）
         let data = {}
         needs.map((string)=>{
             data[string] = this.view.$el.find(`[name="${string}"]`).val()//val()函数 找到对应的value

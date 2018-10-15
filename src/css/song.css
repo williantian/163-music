@@ -9,10 +9,9 @@
      0%{transform: rotate(0deg);}
      100%{transform: rotate(360deg);}
  }
- .page{display: flex; flex-direction: column; height: 100vh; width: 100vw;
+ .page{display: flex; flex-direction: column; height: 100%;
 	background: transparent url(http://p3.music.126.net/z4p2xss2a50qNHe6TLFdoA==/2425522650910827.jpg) no-repeat center;
     background-size: cover; 
-    border: 1px solid red;
 }
  .disc-container{
      position: relative;
@@ -52,9 +51,15 @@
     position: absolute;
 }
 .disc-container .cover{
-    width: 44.5vw;
-    position: absolute;
+    width: 45vw;
+    height: 45vw;
     border-radius: 50%;
+    position: absolute;
+    
+}
+
+.disc-container .cover,
+.disc-container .light{
     animation: circle 20s linear infinite;
     animation-play-state: paused;
 }
