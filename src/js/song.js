@@ -2,7 +2,7 @@
      let view ={
          el: '#app',
          init(){
-             this.$el = $(this.el)//背景模糊还没有做 添加一个div做背景模糊//
+             this.$el = $(this.el)//背景模糊还没有做//
          },
          render(data){
              let {song, status}=data
@@ -83,7 +83,7 @@
                 url: '',
                 cover: '',
             },
-            status: 'paused'
+            status: 'playing'
          },
          getId(id){
             var query = new AV.Query('Song');
@@ -102,6 +102,7 @@
              let id = this.getSongId()
              this.model.getId(id).then(()=>{
                  this.view.render(this.model.data)
+                 this.view.play()
              })
              this.bindEvents()
          },
@@ -140,10 +141,6 @@
             window.eventHub.on('songEnd', ()=>{
                 this.model.data.status = 'paused'
                 this.view.render(this.model.data)
-            })
-
-             $(this.view.el).on('click', '.icon-pause', ()=>{
-                this.view.pause()
             })
             
          }

@@ -21,17 +21,13 @@
             this.$el=$(this.el)
         },
         render(data){
-            console.log(1)
             let {songs} = data
-            console.log({songs})
 
             songs.map((song)=>{
-                console.log(2)
                 let $li = $(this.template
                     .replace(`{{song.name}}`, song.name)
                     .replace(`{{song.singer}}`, song.singer)
                     .replace(`{{song.id}}`, song.id))
-                console.log($li)
                 this.$el.find('ol.list').append($li)
             })
            
@@ -57,8 +53,10 @@
             this.view.init()
             this.model=model
             this.model.find().then(()=>{
-                console.log(this.model.data)
                 this.view.render(this.model.data)
+            })
+            this.view.$el.on('click','#songs > li a', ()=>{
+                window.eventHub.emit('playclick')
             })
         }
     }
