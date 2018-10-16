@@ -2,7 +2,7 @@
      let view ={
          el: '#app',
          init(){
-             this.$el = $(this.el)
+             this.$el = $(this.el)//背景模糊还没有做//
          },
          render(data){
              let {song, status}=data
