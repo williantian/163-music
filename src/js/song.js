@@ -6,7 +6,7 @@
          },
          render(data){
              let {song, status}=data
-             this.$el.css('background-image', `url(${song.cover})`)
+             this.$el.find('.background-container').css('background-image', `url(${song.cover})`)
              this.$el.find('img.cover').attr('src', song.cover)
              if(this.$el.find('audio').attr('src') !== song.url){
                 this.$el.find('audio').attr('src', song.url)
@@ -14,9 +14,12 @@
                 audio.onended = ()=>{
                     window.eventHub.emit('songEnd')
                 }
-                audio.ontimeupdate = ()=>{
-                    this.showLyric(audio.currentTime)
+                if(song.lyrics){
+                    audio.ontimeupdate = ()=>{
+                        this.showLyric(audio.currentTime)
+                    }
                 }
+                
              }
              if(status === 'playing'){
                  this.$el.find('.disc-container').addClass('playing')
@@ -25,23 +28,30 @@
              }
              this.$el.find('.song-description > h1').text(song.name)
              let {lyrics}=song
-             lyrics.split('\n').map((string)=>{
-                 let p = document.createElement('p')
-                 let regex = /\[([\d:.]+)\](.+)/
-                 let matches = string.match(regex)
-                 if(matches){
-                    p.textContent = matches[2]
-                    let time = matches[1]
-                    let parts = time.split(':')
-                    let minutes = parts[0]
-                    let seconds = parts[1]
-                    let newTime = parseInt(minutes, 10) * 60 + parseFloat(seconds, 10)
-                    p.setAttribute('data-time', newTime)
-                 }else{
-                    p.textContent=string
-                 }
-                 this.$el.find('.lyric > .lines').append(p)
-             })
+             if(lyrics){
+                lyrics.split('\n').map((string)=>{
+                    let p = document.createElement('p')
+                    let regex = /\[([\d:.]+)\](.+)/
+                    let matches = string.match(regex)
+                    if(matches){
+                       p.textContent = matches[2]
+                       let time = matches[1]
+                       let parts = time.split(':')
+                       let minutes = parts[0]
+                       let seconds = parts[1]
+                       let newTime = parseInt(minutes, 10) * 60 + parseFloat(seconds, 10)
+                       p.setAttribute('data-time', newTime)
+                    }else{
+                       p.textContent=string
+                    }
+                    this.$el.find('.lyric > .lines').append(p)
+                })
+             }else{
+                let p = document.createElement('p')
+                p.textContent = '暂时没有歌词'
+                this.$el.find('.lyric > .lines').append(p)
+             }
+             
             
 
          },
@@ -82,6 +92,7 @@
                 singer: '',
                 url: '',
                 cover: '',
+                lyrics: ''
             },
             status: 'playing'
          },

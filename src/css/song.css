@@ -12,6 +12,16 @@
  .page{display: flex; flex-direction: column; height: 100%;
 	background: transparent url(http://p3.music.126.net/z4p2xss2a50qNHe6TLFdoA==/2425522650910827.jpg) no-repeat center;
     background-size: cover; 
+    z-index: -1;
+}
+.page .background-container{
+    height: 100vh;
+    width: 100%;
+    background-color: red;
+    filter: blur(3px);
+    background: no-repeat center center;
+    background-size: cover;
+    position: fixed;
 }
  .disc-container{
      position: relative;
@@ -80,6 +90,7 @@
     text-align: center;
     line-height: 2;
     margin-top: 3vh;
+    z-index: 1;
 }
 .song-description h1{
 	color: white;
