@@ -206,6 +206,7 @@ section.art .copyright{
 .hotSong{
     background: url('https://s3.music.126.net/m/s/img/hot_music_bg_3x.jpg?2bfefd3ba37eaffbd66b7d108b9de26a') no-repeat;
     height: 22vh;
+    background-size: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
