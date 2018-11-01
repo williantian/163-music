@@ -94,14 +94,13 @@
                 cover: '',
                 lyrics: ''
             },
-            status: 'playing'
+            status: 'paused'
          },
          getId(id){
             var query = new AV.Query('Song');
             return query.get(id).then((song)=> {
                 Object.assign(this.data.song,{id: song.id,...song.attributes})
                 return song
-              
             })
          }
      }
@@ -112,6 +111,7 @@
              this.model=model
              let id = this.getSongId()
              this.model.getId(id).then(()=>{
+                this.model.data.status = 'playing'
                  this.view.render(this.model.data)
                  this.view.play()
              })

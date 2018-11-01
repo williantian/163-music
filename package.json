@@ -5,7 +5,8 @@
   "dependencies": {
     "leancloud-storage": "^3.10.0",
     "qiniu": "^7.2.1",
-    "qiniu-js": "^1.0.22"
+    "qiniu-js": "^1.0.22",
+    "vconsole": "^3.2.0"
   },
   "devDependencies": {},
   "scripts": {

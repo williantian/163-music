@@ -55,9 +55,6 @@
             this.model.find().then(()=>{
                 this.view.render(this.model.data)
             })
-            this.view.$el.on('click','#songs > li a', ()=>{
-                window.eventHub.emit('playclick')
-            })
         }
     }
     controller.init(view,model)
