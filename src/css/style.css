@@ -266,6 +266,7 @@ section.art .copyright{
     line-height: 34px;
     border-radius: 50%;
     border-radius: 10px;
+    white-space: nowrap;
 }
 .list p{
     font-size: 12px;

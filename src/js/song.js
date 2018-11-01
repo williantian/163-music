@@ -51,7 +51,7 @@
                 p.textContent = '暂时没有歌词'
                 this.$el.find('.lyric > .lines').append(p)
              }
-             
+             return data
             
 
          },
@@ -112,8 +112,10 @@
              let id = this.getSongId()
              this.model.getId(id).then(()=>{
                 this.model.data.status = 'playing'
-                 this.view.render(this.model.data)
-                 this.view.play()
+                this.view.render(this.model.data)
+                this.view.play()
+                
+                 
              })
              this.bindEvents()
          },
