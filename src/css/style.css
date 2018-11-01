@@ -27,17 +27,13 @@ body{
     padding-left: 8px;
     margin: 20px 0 8px;
 }
-.pageTabsNavbar.sticky{
-    transition: all linear 0.2s;
-}
-.sticky{
+.pageTabsNavbar{
     position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1;
     background: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }
 section.topbar{
     display: flex;
