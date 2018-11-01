@@ -3,6 +3,7 @@
 *{box-sizing: border-box;}
 *::before{box-sizing: border-box;}
 *::after{box-sizing: border-box;}
+*:focus {outline: none;}
 a{color: inherit; text-decoration: none;}/*颜色继承 清楚下划线*/
 ul,ol{list-style: none;}/*清楚列表样式*/
 h1,h2,h3,h4,h5,h6{font-weight: normal;}
@@ -132,7 +133,7 @@ section.playlists > ol.songs > li{
 section.playlists > ol.songs > li p{
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: ;/*看文档 这段p的css 删除也是一样*/
+    /*-webkit-line-clamp:;*/ /*看文档 这段p的css 删除也是一样*/
     overflow: hidden;
     line-height: 20px;
     height: 36px;
@@ -201,4 +202,84 @@ section.art .copyright{
     font-size: 12px;
     color: #888;
     transform: scale(0.75);/*按比例放大缩小*/
+}
+.hotSong{
+    background: url('https://s3.music.126.net/m/s/img/hot_music_bg_3x.jpg?2bfefd3ba37eaffbd66b7d108b9de26a') no-repeat;
+    height: 22vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.hotSong .hotSongPicture{
+    background: url('https://s3.music.126.net/m/s/img/index_icon_2x.png?5207a28c3767992ca4bb6d4887c74880') no-repeat;
+    background-size: 6rem 13vh; 
+    width: 6rem;
+    height: 13vh;
+    background-position: -14px -22px;
+}
+.hotSong p {
+    font-size: 12px;
+    color: white;
+}
+/*page3*/
+#searchSong{
+  border-bottom: 1px solid #cccccc;
+}
+#searchSong .searchBar{
+    display: flex;
+    text-align: center;
+    border-radius: 10px;
+    width: 100%;
+    background: #ebecec;
+    margin: 5px 00px;
+    padding: 0 10px;
+    overflow: hidden;
+    margin: 2.3vh 0.24rem
+    
+}
+.searchlogo{
+    display: flex;
+    margin: auto 0;
+}
+#searchSong form, #searchSong input{
+    width: 100%;
+    flex: 1;
+    text-decoration: none;
+}
+#searchSong form{ 
+    line-height: 30px;
+    border: none;
+    margin-right: 5px;
+    
+}
+#searchSong input{
+    line-height: 28px;
+    border: none;
+    background: #ebecec;
+}
+.hotSearch{
+    padding: 20px 5px;
+    border-top: 1px solid #cccccc;
+}
+.hotSearch p{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.hotSearch a{
+    border: 1px solid #cccccc;
+    padding: 5px 12px;
+    line-height: 34px;
+    border-radius: 50%;
+    border-radius: 10px;
+}
+.list p{
+    font-size: 12px;
+}
+.list .item{
+    display: flex;
+    justify-content: space-between;
+}
+.list span{
+   padding: 5px 10px;
 }

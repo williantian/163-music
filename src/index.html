@@ -98,14 +98,57 @@
                     </div>
                 </section>
             </li>
-            <li class="page-2">page 2</li>
-            <li class="page-3">
-                <input id="search" type="text" style="background: #ebecec">
-                <ol id="searchResult"></ol>
+            <li class="page-2">
+                <section class="songs">
+                    <div class="hotSong">
+                        <div class="hotSongPicture"></div>
+                        <p>更新日期 10月</p>
+                    </div>
+                    <ol class="list"></ol>
+                </section>
             </li>
-        </ol>
-    </div>
-    <script src="//at.alicdn.com/t/font_869235_k490tdu7j5.js"></script>
+            <li class="page-3">
+                <div class="searchSong" id="searchSong">
+                        <div class="searchBar">
+                                <div class="searchlogo">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-chazhao"></use>
+                                    </svg>
+                                </div>
+                                <form action="#">
+                                    <input type="search" value="" placeholder="搜索歌曲、歌手、专辑" results="5">
+                                </form>
+                        </div>
+                        <div class="hotSearch">
+                            <p>热门搜索</p>
+                            <a href="">毛不易</a>
+                            <a href="">尘土</a>
+                            <a href="">毛不易</a>
+                            <a href="">毛不易</a>
+                            <a href="">毛不易</a>
+                            <a href="">毛不易</a>
+                        </div>
+                        <ul class="list">
+                          <p>历史搜索</p>
+                          <li class="item">
+                              <span>
+                                    <span>
+                                        <svg class="icon" aria-hidden="true">
+                                            <use xlink:href="#icon-shijian"></use>
+                                        </svg>
+                                    </span>
+                                    <span>薛之谦</span>
+                              </span>
+                              
+                              <span class="cha">
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-cha"></use>
+                                    </svg>
+                              </span>
+                          </li>
+                        </ul>
+                </div>
+    <script src="//at.alicdn.com/t/font_869235_tl59ch92ms.js"></script>
     <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
     <script src="./js/initializers/av.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
