@@ -51,7 +51,6 @@
                 p.textContent = '暂时没有歌词'
                 this.$el.find('.lyric > .lines').append(p)
              }
-             return data
             
 
          },
