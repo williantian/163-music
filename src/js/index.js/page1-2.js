@@ -54,6 +54,9 @@
             this.model=model
             this.model.find().then(()=>{
                 this.view.render(this.model.data)
+                $(this.view.el).ready(()=> {
+                    this.view.$el.find('.siteWelcome').removeClass('active')
+                 });
             })
         }
     }

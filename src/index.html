@@ -82,6 +82,7 @@
                 </section>
                 <section class="songs">
                     <h2 class="sectionTitle">最新音乐</h2>
+                    <div class="load-site"></div>
                     <ol id="songs" class="list">
                         <div id="songs-loading" class="square-spin" style="margin: 0 auto; width: 50px;"><div></div></div>
                     </ol>
@@ -158,6 +159,14 @@
     <script src="./js/index.js/page2.js"></script>
     <script src="./js/index.js/page3.js"></script>
     <script src="./js/index.js/main.js"></script>
+    <script>
+    $(document).ready(()=>{
+        $('section.songs .load-site').addClass('beforeload')
+    })
+    window.onload=function(){
+        $('section.songs .load-site').removeClass('beforeload')
+    }
+    </script>
 
 </body>
 </html>

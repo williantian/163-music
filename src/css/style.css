@@ -278,3 +278,15 @@ section.art .copyright{
 .list span{
    padding: 5px 10px;
 }
+/*加载动画*/
+section.songs .load-site{
+    display: none;
+    background: url("http://pbw0wx370.bkt.clouddn.com/wyy7.gif") no-repeat;
+    background-size: contain;
+    width:10rem;
+    min-height:20px;
+    margin-left:46%;
+}
+section.songs .load-site.beforeload{
+    display: block;
+}
